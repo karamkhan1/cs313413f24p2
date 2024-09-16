@@ -15,12 +15,13 @@ import org.junit.Test;
 public class TestIterator {
 
   private List<Integer> list;
-  // See the Java List Interface documentation to understand what all the List methods do ...
+  // See the Java List Interface documentation to understand what all the List
+  // methods do ...
 
   @Before
   public void setUp() throws Exception {
     // Initialize list as an ArrayList
-    list = new ArrayList<Integer>(); 
+    list = new ArrayList<Integer>();
   }
 
   @After
@@ -90,9 +91,11 @@ public class TestIterator {
     list.add(66);
     double sum = 0;
     int n = 0;
-    // TODO use an iterator and a while loop to compute the average (mean) of the values
-    // (defined as the sum of the items divided by the number of items)
-    // testNonempty shows how to use an iterator; use i.hasNext() in the while loop condition
+    final var i = list.iterator();
+    while (i.hasNext()) {
+      sum += i.next();
+      n++;
+    }
     assertEquals(61.3, sum / n, 0.1);
     assertEquals(7, n);
   }
